@@ -71,7 +71,7 @@ sr = nk.optimizer.SR(diag_shift=1e-6, holomorphic=False)
 gs = nk.driver.VMC(H, optimizer, variational_state=vstate,preconditioner=sr)
 
 log=nk.logging.RuntimeLog()
-gs.run(n_iter=100,out=log)
+gs.run(n_iter=500,out=log)
 
 ffn_energy=vstate.expect(H)
 error=abs((ffn_energy.mean-E_gs)/E_gs)

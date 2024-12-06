@@ -242,14 +242,14 @@ class VisionTransformer(nn.Module):
         patches = extract_patches(x, self.patch_size)
         x = PatchEmbedding(self.embed_dim)(patches)
 
-        #pos_embed = self.param("pos_embed", nn.initializers.normal(stddev=0.01), (self.num_patches, self.embed_dim))
-        #pos_embed = fixed_sine_cosine_embeddings(self.num_patches, self.embed_dim)
-        #x += pos_embed.astype(jnp.complex128)
+        pos_embed = self.param("pos_embed", nn.initializers.normal(stddev=0.01), (self.num_patches, self.embed_dim))
+        pos_embed = fixed_sine_cosine_embeddings(self.num_patches, self.embed_dim)
+        x += pos_embed.astype(jnp.complex128)
 
-        grid_size = (self.L, self.L)
-        rel_pos_embed = fixed_relative_positional_embeddings(grid_size, embed_dim)
-        # Add these embeddings to the input patches
-        x = x + rel_pos_embed[:grid_size[0], :grid_size[1], :]
+        # grid_size = (self.L, self.L)
+        # rel_pos_embed = fixed_relative_positional_embeddings(grid_size, embed_dim)
+        # # Add these embeddings to the input patches
+        # x = x + rel_pos_embed[:grid_size[0], :grid_size[1], :]
 
         intermediate_outputs = {} if return_intermediate else None
 
@@ -406,11 +406,11 @@ def linear_solver_pinv_smooth(rcond=1e-6):
 
 solver = linear_solver_pinv_smooth(1e-8)
 
-#sr = nk.optimizer.SR(diag_shift=1e-2, holomorphic=False)
+sr = nk.optimizer.SR(diag_shift=1e-4, holomorphic=False)
 # Notice the use, again of Stochastic Reconfiguration, which considerably improves the optimisation
-#gs = nk.driver.VMC(H, optimizer, variational_state=vstate,preconditioner=sr)
+gs = nk.driver.VMC(H, optimizer, variational_state=vstate,preconditioner=sr)
 
-gs = nkx.driver.VMC_SRt(H,optimizer,diag_shift=0.0,variational_state=vstate,jacobian_mode="complex",linear_solver_fn=solver)
+#gs = nkx.driver.VMC_SRt(H,optimizer,diag_shift=0.0,variational_state=vstate,jacobian_mode="complex",linear_solver_fn=solver)
 
 log=nk.logging.RuntimeLog()
 gs.run(n_iter=500,out=log)

@@ -1,0 +1,2 @@
+L,g,E_exact,E_vmc_real,Var_E,Mean_Two_Point_Correlation,Var_Two_Point_Correlation,Exact_Two_Point_Correlation,Exact_Two_Point_Correlation_Variance,rel_error
+12,2.0,-25.52513830204807,-25.525122180202743,0.002179018951972073,0.00784912109375,0.19284881881541677,0.007487996769623892,0.19283452727461659,6.316065807911263e-07
