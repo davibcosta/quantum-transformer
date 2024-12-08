@@ -127,7 +127,7 @@ def run_vmc_for_coupling(
         target=target,
         monitor="mean",
         smoothing_window=5,
-        patience=1
+        patience=5
     )
 
     # Run VMC optimization
@@ -191,7 +191,7 @@ if __name__ == "__main__":
     L_values = [12, 16, 20]
 
     # Define coupling scans
-    g_coarse = np.linspace(2.0, 0.5, 30)
+    g_coarse = np.linspace(1.05, 0.95, 51)
 
     # Hyperparameters
     lr_initial = 0.1
@@ -246,7 +246,7 @@ if __name__ == "__main__":
         optimizer = optax.sgd(learning_rate=lr_schedule)
 
         # Coarse Scan
-        print("Performing scan from g=2.0 to g=0.5\n")
+        print("Performing scan from g=1.05 to g=0.95\n")
         for g in g_coarse:
             rng, run_rng = random.split(rng)
             (

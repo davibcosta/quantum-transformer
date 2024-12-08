@@ -1,0 +1,12 @@
+{
+    "L": 20,
+    "g": 0.986,
+    "E_exact": -25.31475342483533,
+    "E_vmc_real": -25.314546609804818,
+    "Var_E": 0.00031360186562862753,
+    "Mean_Two_Point_Correlation": 0.44252978515625,
+    "Var_Two_Point_Correlation": 0.19187061190581325,
+    "Exact_Two_Point_Correlation": 0.44415024096324734,
+    "Exact_Two_Point_Correlation_Variance": 0.19049451478664012,
+    "rel_error": 8.169743036481152e-06
+}
