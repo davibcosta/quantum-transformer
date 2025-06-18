@@ -7,8 +7,10 @@ This proposal explores the use of Deep ViTs to approximate ground-state wavefunc
 
 [1] Giuseppe Carleo and Matthias Troyer. “Solving the Quantum Many-Body Problem with Ar-
 tificial Neural Networks”. In: Nature 558 (2017), pp. 446–449. doi: 10.1038/nature24270.
+
 [2] Xiaodong Cao, Zhicheng Zhong, and Yi Lu. Vision Transformer Neural Quantum States for
 Impurity Models. 2024. arXiv: 2408.13050.
+
 [3] Luciano Loris Viteritti, Riccardo Rende, and Federico Becca. “Transformer Variational Wave
 Functions for Frustrated Quantum Spin Systems”. In: Physical Review Letters 130.23 (June
 2023). issn: 1079-7114. doi: 10.1103/physrevlett.130.236401.
